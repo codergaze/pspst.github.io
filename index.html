@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffcccb;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .pixel-text {
+            font-size: 24px;
+            color: #d62828;
+            text-transform: uppercase;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: #ff6b6b;
+            color: white;
+            border-radius: 5px;
+        }
+        #response {
+            margin-top: 20px;
+            display: none;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="pixel-text">Will you be my Valentine, Toothless?</p>
+        <div class="buttons">
+            <button id="yes">Yes</button>
+            <button id="no">No</button>
+        </div>
+        <p id="response" class="pixel-text hidden">Yay! ❤️</p>
+        <img id="blushing-cat" class="hidden" src="https://media.giphy.com/media/JFawkP5bPxt0hvZpxx/giphy.gif" alt="Blushing Cat" width="150">
+    </div>
+    <script>
+        document.getElementById("yes").addEventListener("click", function() {
+            document.getElementById("response").style.display = "block";
+            document.getElementById("blushing-cat").style.display = "block";
+        });
+
+        document.getElementById("no").addEventListener("click", function() {
+            let yesButton = document.getElementById("yes");
+            let currentSize = window.getComputedStyle(yesButton).fontSize;
+            let newSize = parseFloat(currentSize) * 1.2 + "px";
+            yesButton.style.fontSize = newSize;
+        });
+    </script>
+</body>
+</html>
